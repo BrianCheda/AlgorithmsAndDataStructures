@@ -1,0 +1,18 @@
+#Written for Python, implemented on PyCharm
+import random
+print("Welcome to Algorithms and Data structure homework one problem one by Brian Cheda")
+print("This program takes in a sequence of n numbers and a value v and checks if v occurs in the sequence. \nTo begin, how many numbers would you like in your sequence?\n")
+n = int(input()) # finds out how many numbers should be in the sequence
+A=[] #creates our list
+for x in range(0,n):
+    A.append(random.randint(0,100)) #populates our list
+print(A)#prints out list
+v = int(input("Type in a value you wish to be searched in our sequence \n")) # asks for the value that is being searched for
+i=0 # starts our index
+count = 0 #allows us to make sure NIL only prints if the value does not exist
+for i in (i for i, x in enumerate(A) if x == v): # iterates through our list
+    print(i) # prints the index of the sequence if it is found in our list
+    count+=1 # adds to the count if I is activated
+if count==0: # if I was not activated during the iteration print NIL
+    print("NIL")
+print("End of Program")
