@@ -1,0 +1,29 @@
+import random
+print("Welcome to Algorithms and Data structure homework one problem two by Brian Cheda")
+print("\nThis program takes in a single numerical input and uses it to randomly populate two lists (A and B)") #Python doesn't have arrays but list work in the same way
+print("The contents of the lists are then displayed to the user in integer and binary format.")
+print("A third list is then created form the sum of list A and B plus 1 and displayed in integer and binary format.")
+n = int(input("\nHow many elements would you like in your lists?\n")) # finds out how many numbers should be in the sequence
+A=[] #creates A list("array")
+B=[] #creates B list
+C=[] #creates C list
+for x in range(0,n):
+    A.append(random.randint(0,100)) #populates A list with n number of integers
+for y in range(0,n):
+    B.append(random.randint(0,100))#populates B list with n number of integers
+print("A in Decimal: ", A)
+print("\nA in Binary: ")
+for x in A: # iterates through A list integers
+    print(bin(x), end=' ') # prints the binary form of A integers
+print("\n\nB in Decimal: ", B) # prints B integer list
+print("\nB in Binary: ")
+for y in B: # iterates through B list integers
+    print(bin(y), end=' ') # prints the binary form of B integers
+C = [x + y + 1 for x,y in zip(A,B)] # makes C equal to the sum of A and B at any given index plus one
+print("\n\nC in Decimal: ", C) # prints out C as an integer
+print("\nC in Binary: ") # prints the header for Binary C
+for z in C: # iterates through C list integers
+    print(bin(z), end=' ') # prints the binary form of C integers
+
+#Formal Description: start with three empty list. Take in user input for how many elements should be allowed into the list.
+#Populate the first two list(A,B) with random integers of size n, convert to binary. Populate the third list with the summation of A.index(i)+B.index(i)+1 and convert to binary
