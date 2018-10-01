@@ -4,26 +4,34 @@ print("\nThis program takes in a single numerical input and uses it to randomly 
 print("The contents of the lists are then displayed to the user in integer and binary format.")
 print("A third list is then created form the sum of list A and B plus 1 and displayed in integer and binary format.")
 n = int(input("\nHow many elements would you like in your lists?\n")) # finds out how many numbers should be in the sequence
-A=[] #creates A list("array")
-B=[] #creates B list
-C=[] #creates C list
+A=[] #creates A list("array") where binary elements will be held
+Ab=[]#creates Ab list where integers will be stored temporarily as they're turned into binary
+B=[] #creates B list where binary elements will be held
+Bb=[]#creates Bb list where integers will be stored temporarily as they're turned into binary
+C=[] #creates C list where [A+B+00000001]will be held
+Cb=[]#creates Cb list where decimal format will be stored
 for x in range(0,n):
-    A.append(random.randint(0,100)) #populates A list with n number of integers
+    Ab.append(random.randint(0,100)) #populates A list with n number of integers
 for y in range(0,n):
-    B.append(random.randint(0,100))#populates B list with n number of integers
-print("A in Decimal: ", A)
-print("\nA in Binary: ")
-for x in A: # iterates through A list integers
-    print(bin(x), end=' ') # prints the binary form of A integers
-print("\n\nB in Decimal: ", B) # prints B integer list
-print("\nB in Binary: ")
-for y in B: # iterates through B list integers
-    print(bin(y), end=' ') # prints the binary form of B integers
-C = [x + y + 1 for x,y in zip(A,B)] # makes C equal to the sum of A and B at any given index plus one
-print("\n\nC in Decimal: ", C) # prints out C as an integer
-print("\nC in Binary: ") # prints the header for Binary C
-for z in C: # iterates through C list integers
-    print(bin(z), end=' ') # prints the binary form of C integers
-
-#Formal Description: start with three empty list. Take in user input for how many elements should be allowed into the list.
-#Populate the first two list(A,B) with random integers of size n, convert to binary. Populate the third list with the summation of A.index(i)+B.index(i)+1 and convert to binary
+    Bb.append(random.randint(0,100))#populates B list with n number of integers
+for x in Ab: # iterates over the values created in Ab
+    A.append(str(bin(x))) # stores the binary integers generated in Ab to A
+for y in Bb: #iterates over the values created in Bb
+    B.append(str(bin(y))) # stores the binary integers generated in Bb to B
+W = bin(1) #creates the binary (1) that will be added to A,B through every iteration
+for (X, Y) in zip(A,B): #here we iterate through A and B using X and Y to follow our index
+    C.append(str(bin(int(X,2) + int(Y,2) + int(W,2)))) #adds the binary values of A and B plus W, our one bit variable
+for R in C:
+    Cb.append(int(R,2))
+print("\n\nA Binary")
+print(A) #outputs the binary values in A
+print("B Binary")
+print(B) #outputs the binary values in B
+print("C Binary")
+print(C) #outputs the binary values in C
+print("\nA decimal")
+print(Ab) #outputs the decimal values in A
+print("B decimal")
+print(Bb) #outputs the decimal values in B
+print("C decimal")
+print(Cb) #outputs the decimal values in C
