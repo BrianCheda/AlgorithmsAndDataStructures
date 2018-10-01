@@ -35,3 +35,11 @@ print("B decimal")
 print(Bb) #outputs the decimal values in B
 print("C decimal")
 print(Cb) #outputs the decimal values in C
+print("End Of Program") #goodbye message
+#Formal Description
+#Program starts with six empty lists[A,Ab,B,Bb,C,Cb]. Ab and Bb are then populated by a user defined n-number of integers.
+#We then iterate over Ab and Bb and change their values to binary using bin(). Since python cannot keep lists of bytes, we then
+#proceed to turn the bytes into a string and store them in A and B respectively. C is then populated using A and B and the int
+#function which convers the string stored variables to integers and then bytes. 1 bit is then added to the sum of A and B.
+# the functions continues adding 1 bit to the summation of the indexes until all the values have been accounted for.
+# The program then outputs A,B,C in binary format and then in decimal format using Ab,Bb and Cb
