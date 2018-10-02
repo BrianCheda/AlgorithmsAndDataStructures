@@ -43,3 +43,26 @@ print("End Of Program") #goodbye message
 #function which convers the string stored variables to integers and then bytes. 1 bit is then added to the sum of A and B.
 # the functions continues adding 1 bit to the summation of the indexes until all the values have been accounted for.
 # The program then outputs A,B,C in binary format and then in decimal format using Ab,Bb and Cb
+#------------------------------------------------------------------------------------------
+# opt 2
+#------------------------------------------------------------------------------------------
+A = [choice("01") for i in range(n)] # Randomly inputs bits into an n range sized array A
+B = [choice("01") for i in range(n)]# Randomly inputs bits into an n range sized array B
+C = []# Creates our output array C
+a = ''.join(A) #joins the bits stored in n sized array A ex ['0','1','1'] becomes 011
+b = ''.join(B) #joins the bits stored in n sized array B ex ['1','0','1'] becomes 101
+c = (int(a,2) + int(b,2)) #stores the sum of c in a temporary integer c
+output = ('0'+ str(n+1)+'b') #creates the format so C array will always be n+1
+C=[int(d) for d in str(format(c,output))] # splits the summation of A and B into array C
+print("The value of array A is:") #header for A array
+print("["+', '.join(A)+"]") #strips the format of A array for consistent output before it was ['0','1','1'] now it's [0,1,1]
+print("The value of array B is:") # header for B array
+print("["+', '.join(B)+"]") #strips the format of B array for consistent output before it was ['1','0','1'] now it's [1,0,1]
+print("The value of array C is:") # header for C array
+print(C) # outputs the C array
+#Formal Description
+#The program takes in an input n to define the size of A and B arrays. The Arrays are then populated with randomly with bits.
+#The value of the arrays are then condensed into strings a and b which are then turned into integers and added into c.
+#The program then creates the format for C array so that even if A&B both equal 000 the output will still be 0000.
+#At line 56 the program then takes the added integers, the format of our array and splits the bits accordingly.
+#Each array is then printed. Lines 58 and 60 have extensive print codes to make the output more visually appealing and uniform.
